@@ -1,0 +1,28 @@
+<!-- Configure the administrative HTTP server on port 8085 This HTTP server 
+	provides admin functions and statistics for the instance <Authentication> 
+	<Module>amps-no-authorization</Module> </Authentication> <Entitlement> <Module>amps-no-authorization</Module> 
+	</Entitlement> -->
+<Admin>
+	<InetAddr>localhost:8085</InetAddr>
+</Admin>
+<!-- Configure a transport for JSON messages over TCP on port 9007 -->
+<Transports>
+	<Transport>
+		<Name>json-tcp</Name>
+		<Type>tcp</Type>
+		<InetAddr>9007</InetAddr>
+		<MessageType>json</MessageType>
+		<Protocol>amps</Protocol>
+	</Transport>
+</Transports>
+<!-- Log messages of severity 'error' and higher to stdout -->
+<Logging>
+	<Target>
+		<Protocol>file</Protocol>
+		<Level>info</Level>
+		<FileName>log/log-%n.log</FileName>
+		<RotationThreshold>2G</RotationThreshold>
+	</Target>
+</Logging>
+</AMPSConfig>
+
