@@ -9,10 +9,11 @@ public class AmpsPublisher
 		System.out.println("-----");
 		Client client = new Client("TestPublisher-Client");
 		try {
-			client.connect("tcp://192.168.40.135:9007/amps/json");
+			client.connect("tcp://vm1:9007/amps/json");
 			client.logon();
 			for(int i=0;i<999999999;i++){
 				Thread.sleep(1000);
+				System.out.println(">>>>>>");
 				client.publish("messages", "{ \"message\" : \"Hello, world!\" }");
 			}
 		}
